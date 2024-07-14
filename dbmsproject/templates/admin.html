@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation Center Connect</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <style>
+/* Add more .leaf styles for additional leaves */
+
+    body{
+      background-color:  #18332f;
+    }
+    .nav-link{
+      color: rgba(45, 68, 50, 0.86);
+      padding: 10px 20px; /* Adjust padding for better spacing */
+}
+    .nav-link.activeTab{
+      background-color:3px solid #2e573e  ;
+      color: #0f5b2c; /* Change text color for active item */
+    }
+    .hero{
+      opacity: 1;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+      display: inline-block;
+      max-width: 50%;
+    }
+    .image-container img {
+      max-width: 100%; /* Ensure the image does not exceed its parent container's width */
+      height: auto; /* Maintain the image's aspect ratio */
+      border-radius: 10px; /* Optional: Add border-radius to round the corners of the image */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add box shadow for a subtle elevation effect */
+}
+    .weather-container { 
+      align-items: center;
+      color: aliceblue;
+      padding-left: 10px; 
+      opacity: 1;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+      display: inline-block;
+      max-width: 50%;
+    }
+    
+    .lead{
+      font-weight: bold;
+      color: rgba(151, 218, 165, 0.651);
+      text-align: left; /* Align text to the left */
+      max-width: 100%; /* Set maximum width to prevent overflow */
+    }
+    .features{
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+      display: flex; /* Make the container a flex container */
+      flex-wrap: wrap; /* Allow wrapping to the next line on smaller screens */
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .activeTab{
+     border-bottom: 2px solid forestgreen; /* Set the underline color and thickness */
+     color: forestgreen; /* Set the text color */
+     text-decoration: none; /* Remove the default underline */
+    }
+    .featItems{
+      flex: 1; /* Distribute available space equally among items */
+      margin-bottom: 1rem; /* Add some margin between items */
+      padding: 2rem; /* Add padding to separate content */
+      box-sizing: border-box; /* Include padding in the width */
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      
+    }
+    .featItems > div {
+      width: 100%; /* Make sure content takes full width */
+    }
+
+    h1{
+      color: lightgray;
+    }
+
+    .display-5 {
+      text-align:left ;
+    }
+
+   .divider {
+  border: none;
+  height: 2px; 
+  background-color: #000; 
+  margin: 0; 
+   }
+
+.bg-lightgrey {
+    background-color: #dcdcdcd5; /* Set the desired light grey color */
+}
+.featItems:hover {
+      transform: scale(1.05);
+    }
+
+    .featItems p {
+      max-height: 500px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .featItems {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      margin-right: 10px; /* Add right margin */
+  margin-left: 10px;  /* Add left margin */
+    }
+
+ section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+ }
+ section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+.navbar{
+  background-color: lightgray;
+}
+.navbar-brand{
+  color: black;
+  padding-left: 50px;
+
+}
+.navbar-collapse{
+    flex-grow: 0;
+    padding-right: 50px;
+  }
+
+.content {
+  position: relative; /* Make sure the content container is positioned */
+  z-index: 1; /* Set a higher z-index to keep it above the falling leaves */
+  display: flex;
+  flex-wrap: wrap;
+}
+.box2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.weather-container {
+  background-color: #5d9e6e;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 20%;
+}
+
+.weather-container h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  color: azure;
+  opacity: 1;
+}
+.button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Adjust the space between buttons as needed */
+        margin-top: 20px; /* Add top margin as needed */
+    }
+
+.weather-container p {
+  font-size: 1.17rem;
+  color: #170202;
+  margin: 10px 0;
+}
+@media (max-width: 768px){
+  .box2{
+    flex-direction: column;
+  }
+  .weather-container{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+  </style>
+</head>
+<body>
+  <h1 class="header">Innovation Center Connect</h1>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Innovation Center Connect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link activeTab" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Insert New User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="deleteuser.html">Delete User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jobpost.html">Add Job Posting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="studentregister.html">Add Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="startupregister.html">Add Startup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="content"></div>
+<div class="box2">
+  <div class="px-4 py-5 my-5 text-center hero">
+    <h1 class="display-5 fw-bold">Innovation Center Connect</h1>
+    <div class="col-lg-6">
+      <p class="lead mb-4">Our innovative solution is an all-in-one application designed to connect students, Startup Owners and Investors ensuring smooth operation of the Innovation Center.</p>
+    </div>
+  </div>
+</div>
+<div class="image-container">
+  <img src="/Users/harshitpesala/Desktop/DBS_Lab_Project/dbs-lab1/templates/icbuilding.jpeg" alt="Innovation Center Building">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!--<img src="icbuilding.jpeg"> -->
+<div class="button-container">
+    <button id="nestedQuery1Btn" class="btn btn-primary">Nested Query 1</button>
+    <button id="nestedQuery2Btn" class="btn btn-primary">Nested Query 2</button>
+    <button id="nestedQuery3Btn" class="btn btn-primary">Nested Query 3</button>
+</div>
+<div id="queryResult"></div>
+
+<!-- Add a div to display the query results -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function executeQuery(queryType) {
+            fetch('/execute_query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'query_type': queryType }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var resultElement = document.getElementById('queryResult');
+            resultElement.style.color = 'white';
+            resultElement.style.textAlign = 'center';
+            resultElement.style.fontSize = '20px';
+
+            // Display the result in a visible element
+            resultElement.innerText = JSON.stringify(data.result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Display an error message in a visible element
+                document.getElementById('queryResult').innerText = 'Error occurred.';
+            });
+        }
+
+        // Add event listeners for each button
+        document.getElementById('nestedQuery1Btn').addEventListener('click', function () {
+            executeQuery('nested_query_1');
+        });
+        document.getElementById('nestedQuery2Btn').addEventListener('click', function () {
+        executeQuery('nested_query_2');
+    });
+
+    document.getElementById('nestedQuery3Btn').addEventListener('click', function () {
+        executeQuery('nested_query_3');
+    });
+
+        // Add event listeners for other buttons if needed
+    });
+  </script>
+    
+</body>
+</html>
